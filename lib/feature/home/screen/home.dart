@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:task3/feature/home/widget/bottom_nav.dart';
 import 'package:task3/feature/home/widget/chat_bar.dart';
 import 'package:task3/feature/home/widget/chat_list.dart';
+import 'package:task3/feature/home/widget/floating_btn.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -65,6 +66,7 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
         ),
+        floatingActionButton: const FloatingButton(),
         bottomNavigationBar: const BottomNav(),
       ),
     );
