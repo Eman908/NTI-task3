@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task3/feature/story/screen/story_screen.dart';
 
 class FloatingButton extends StatelessWidget {
   const FloatingButton({
@@ -9,7 +10,11 @@ class FloatingButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       backgroundColor: Colors.greenAccent,
-      onPressed: () {},
+      onPressed: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return const StoryScreen();
+        }));
+      },
       child: const Icon(
         Icons.add,
         color: Colors.white,

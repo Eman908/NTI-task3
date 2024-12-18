@@ -1,50 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:task3/feature/home/widget/app_bar.dart';
 import 'package:task3/feature/home/widget/bottom_nav.dart';
 import 'package:task3/feature/home/widget/chat_bar.dart';
 import 'package:task3/feature/home/widget/chat_list.dart';
 import 'package:task3/feature/home/widget/floating_btn.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  bool isArabic = true;
 
   @override
   Widget build(BuildContext context) {
     return Directionality(
-      textDirection: TextDirection.rtl,
+      textDirection: isArabic ? TextDirection.rtl : TextDirection.ltr,
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.black87,
-          title: const Text(
+        appBar: bar(
+          btn: null,
+          press: () {
+            setState(() {
+              isArabic = !isArabic;
+            });
+          },
+          txt: const Text(
             'واتساب',
             style: TextStyle(
-                color: Colors.greenAccent, fontWeight: FontWeight.bold),
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.greenAccent),
           ),
-          actions: [
-            const Icon(
-              Icons.photo_camera_outlined,
-              color: Colors.white,
-            ),
-            const SizedBox(
-              width: 24,
-            ),
-            const Icon(
-              Icons.search,
-              color: Colors.white,
-            ),
-            PopupMenuButton(
-              iconColor: Colors.white,
-              itemBuilder: (context) {
-                return [
-                  const PopupMenuItem(
-                    child: Text('مجموعة جديدة'),
-                  ),
-                  const PopupMenuItem(
-                    child: Text('اضافة جهة اتصال'),
-                  ),
-                ];
-              },
-            )
-          ],
         ),
         body: Container(
           color: Colors.black87,
