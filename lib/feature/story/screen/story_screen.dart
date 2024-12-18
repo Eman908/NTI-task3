@@ -46,72 +46,76 @@ class _StoryScreenState extends State<StoryScreen> {
                 color: Colors.greenAccent),
           ),
         ),
-        body: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          width: double.infinity,
-          color: Colors.black87,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'الحالة',
-                style: style(fWeight: FontWeight.bold),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              const SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    StoryCard(),
-                    SizedBox(
-                      width: 24,
-                    ),
-                    StoryCard(),
-                    SizedBox(
-                      width: 24,
-                    ),
-                    StoryCard(),
-                  ],
+        body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            width: double.infinity,
+            color: Colors.black87,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'الحالة',
+                  style: style(fWeight: FontWeight.bold),
                 ),
-              ),
-              const SizedBox(
-                height: 24,
-              ),
-              Row(
-                children: [
-                  Text(
-                    'القنوات',
-                    style: style(fWeight: FontWeight.w800),
+                const SizedBox(
+                  height: 16,
+                ),
+                const SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      StoryCard(),
+                      SizedBox(
+                        width: 24,
+                      ),
+                      StoryCard(),
+                      SizedBox(
+                        width: 24,
+                      ),
+                      StoryCard(),
+                    ],
                   ),
-                  const Spacer(
-                    flex: 1,
-                  ),
-                  TextButton.icon(
-                    onPressed: () {},
-                    label: Text(
-                      'استكشاف',
+                ),
+                const SizedBox(
+                  height: 24,
+                ),
+                Row(
+                  children: [
+                    Text(
+                      'القنوات',
                       style: style(fWeight: FontWeight.w800),
                     ),
-                    icon: const Icon(
-                      Icons.arrow_back,
-                      color: Colors.white,
+                    const Spacer(
+                      flex: 1,
                     ),
-                  )
-                ],
-              ),
-              Expanded(
-                child: ListView.builder(
-                  itemCount: 10,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                        padding: const EdgeInsets.only(bottom: 16),
-                        child: ChannelBar(c: c[0]));
-                  },
+                    TextButton.icon(
+                      onPressed: () {},
+                      label: Text(
+                        'استكشاف',
+                        style: style(fWeight: FontWeight.w800),
+                      ),
+                      icon: const Icon(
+                        Icons.arrow_back,
+                        color: Colors.white,
+                      ),
+                    )
+                  ],
                 ),
-              ),
-            ],
+                SizedBox(
+                  height: 400,
+                  child: ListView.builder(
+                    itemCount: 10,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                          padding: const EdgeInsets.only(bottom: 16),
+                          child: ChannelBar(c: c[0]));
+                    },
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
         floatingActionButton: const FloatingButton(),
